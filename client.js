@@ -55,9 +55,15 @@ document.addEventListener('DOMContentLoaded', () => {
     addressDisplay.innerHTML = `
         <p>Индекс: ${suggestion.data.postal_code || 'Не указано'}</p>
         <p>Регион: ${suggestion.data.region_with_type || 'Не указано'}</p>
-        <p>Город: ${suggestion.data.city || 'Не указано'}</p>
-        <p>Район: ${suggestion.data.city || 'Не указано'}</p>
-        <p>Улица: ${suggestion.data.street_with_type || 'Не указано'}</p>
+        <p>Город: ${suggestion.data.city_with_type || 'Не указано'}</p>
+        <p>Район: ${
+          suggestion.data.city || suggestion.data.area_with_type || 'Не указано'
+        }</p>
+        <p>Улица: ${
+          suggestion.data.street_with_type ||
+          suggestion.data.settlement_with_type ||
+          'Не указано'
+        }</p>
         <p>Номер дома: ${suggestion.data.house || 'Не указано'}</p>
         <p>Корпус: ${suggestion.data.block || 'Не указано'}</p>
         <p>Кваритира: ${suggestion.data.flat || 'Не указано'}</p>
